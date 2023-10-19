@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "less": "4.2.0",
+    "rimraf": "5.0.5",
+    "sass": "1.69.4"
+  },
+  "scripts": {
+    "build": "npm run build:sass",
+    "clean": "npx rimraf bootstrap-iso.css bootstrap-iso.css.map",
+    "build:sass": "npm run clean && npx sass --no-source-map bootstrap-iso.scss bootstrap-iso.css && node fixer.js",
+    "build:sass-min": "npm run clean && npx sass --style=compressed --no-source-map bootstrap-iso.scss bootstrap-iso.css && node fixer.js",
+    "build:less": "npm run clean && npx lessc bootstrap-iso.less bootstrap-iso.css && node fixer.js",
+    "build:less-min": "npm run clean && npx lessc -x bootstrap-iso.less bootstrap-iso.css && node fixer.js"
+  }
+}
